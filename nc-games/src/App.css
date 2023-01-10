@@ -70,6 +70,15 @@
   background-color: #E0E0df;
 }
 
+#NoCommentCard{
+
+  border-style: solid;
+  width: 50%;
+  margin-left: 25%;
+  border-color: #514864;
+  color: #514864;
+  background-color: #E0E0df;
+}
 img {
   width: 60%;
 }
