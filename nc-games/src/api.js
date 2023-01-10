@@ -7,7 +7,6 @@ const gamesApi = axios.create({
 export const getReviews = (id) =>{
     return gamesApi.get("/reviews")
     .then((response)=>{
-        console.log(response.data.reviews[0].review_body)
     return response.data.reviews;
 })
 }

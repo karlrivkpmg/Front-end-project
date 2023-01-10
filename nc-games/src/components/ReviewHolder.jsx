@@ -27,7 +27,6 @@ export const ReviewHolder = () =>{
         {reviews.map((review)=>{
             return(
                 <Link style={{ textDecoration: 'none' }} to={`reviews/${review.review_id}`}>
-
                     <ReviewCard review={review}/>
                 </Link>
             )
