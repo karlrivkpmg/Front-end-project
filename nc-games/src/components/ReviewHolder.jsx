@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { getReviews } from '../api';
 import { ReviewCard } from './ReviewCard';
+import {Link} from 'react-router-dom';
 
 export const ReviewHolder = () =>{
     const [reviews, setReviews] = useState([]);
@@ -25,7 +26,10 @@ export const ReviewHolder = () =>{
         <div>
         {reviews.map((review)=>{
             return(
-                <ReviewCard review={review}/>
+                <Link style={{ textDecoration: 'none' }} to={`reviews/${review.review_id}`}>
+
+                    <ReviewCard review={review}/>
+                </Link>
             )
         })}
         </div>
