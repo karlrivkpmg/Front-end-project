@@ -17,3 +17,10 @@ export const getReviewsById = (id) =>{
     return response.data.review;
 })
 }
+
+export const getCommentsById = (id) =>{
+    return gamesApi.get(`/reviews/${id}/comments`)
+    .then((response)=>{
+    return response.data.comments;
+})
+}

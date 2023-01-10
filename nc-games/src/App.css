@@ -1,6 +1,6 @@
 .App {
   text-align: center;
-  /* background-color: #2c3437; */
+  background-color: #748786;
 }
 
 .App-logo {
@@ -41,20 +41,31 @@
 #ReviewCard{
 
   border-style: solid;
-  width: 250px;
-  margin-left: 42%;
-  margin-bottom: 5%;
+  width: 50%;
+  margin-left: 25%;
   border-color: #514864;
   color: #748786;
-  background-color: #F9F9F8;
+  background-color: #E0E0df;
 }
 
 #Header{
   color: #514864;
-  background-color: #748786;
+  background-color: #E0E0df;
   border-bottom-color: #514864;
   border-bottom: solid;
+  height:100%;
+  width:100%;
 
+}
+
+#CommentCard{
+
+  border-style: solid;
+  width: 50%;
+  margin-left: 25%;
+  border-color: #514864;
+  color: #748786;
+  background-color: #E0E0df;
 }
 
 img {
