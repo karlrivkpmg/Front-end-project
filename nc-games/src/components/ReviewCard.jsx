@@ -7,7 +7,7 @@ export const ReviewCard = ({review}) =>{
     <h3>Owner: {review.owner}</h3>
     <img src={review.review_img_url} alt={`pic of ${review.title}`}/>
     {review.review_body !== undefined &&
-            <p>Body: {review.review_body}</p>
+            <p>{review.review_body}</p>
     }
     <p></p>
     <p>Votes: {review.votes} Comment Count: {review.comment_count}
