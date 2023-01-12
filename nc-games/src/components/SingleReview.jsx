@@ -13,6 +13,7 @@ export const SingleReview = () =>{
     const [isLoadingComments, setIsLoadingComments] = useState(false);
     const [error, setError] = useState(null);
     const {review_id} = useParams();
+    const renderComment = true;
 
     useEffect(()=>{
         setIsLoadingReview(true);
@@ -46,8 +47,8 @@ export const SingleReview = () =>{
         if(error){
             return(
                 <div>
-                            <ErrorComponent message={"Votes canot go below 0"}/>
-                <ReviewCard key ={review.review_id} review={review} setError={setError} />
+                            <ErrorComponent message={"Votes cannot go below 0"}/>
+                <ReviewCard key ={review.review_id} review={review} setError={setError} renderComment={renderComment} setComments={setComments} />
                 {comments.map((comment)=>{
                     return(
                         <CommentCard key={comment.comment_id} comment={comment}  />
@@ -60,7 +61,7 @@ export const SingleReview = () =>{
         if(comments.length ===0){
             return(
                 <div>
-                <ReviewCard key ={review.review_id} review={review} setError={setError}/>
+                <ReviewCard key ={review.review_id} review={review} setError={setError} renderComment={renderComment} setComments={setComments}/>
                 <NoCommentsCard key = {"noComments"}/>
               </div>
             )
@@ -69,7 +70,7 @@ export const SingleReview = () =>{
     return(
         <div>
 
-        <ReviewCard key ={review.review_id} review={review} setError={setError}/>
+        <ReviewCard key ={review.review_id} review={review} setError={setError} renderComment={renderComment} setComments={setComments}/>
         {comments.map((comment)=>{
             return(
                 <CommentCard key={comment.comment_id} comment={comment} />

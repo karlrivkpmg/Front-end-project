@@ -87,3 +87,20 @@ img {
   color: inherit;
   text-decoration: inherit;
 }
+
+textarea{
+  resize:none;  
+}
+
+
+
+button {
+  background-color: #906387;
+  border-radius: 3px;
+  padding-top: 10;
+  padding-left: 12;  
+  padding-right: 12;  
+  clear:both;
+  width:auto;
+
+}
