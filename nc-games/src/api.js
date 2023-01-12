@@ -27,6 +27,16 @@ export const getCommentsById = (id) =>{
 
 export const patchVotesById = (inc, id)=>{
     //Don't worry abput strange object structure, backend code issue that's being managed here
-    const incObj = {voteInc: inc};
-    return gamesApi.patch(`/reviews/${id}`, {voteInc:incObj});
+    const incObj = {voteInc:{voteInc: inc}};
+    return gamesApi.patch(`/reviews/${id}`, incObj);
+}
+
+export const postCommentById = (comment, id)=>{
+    //Don't worry abput strange object structure, backend code issue that's being managed here
+    const newCom = {newComment:{username:"tickle122", body: comment}}
+    return gamesApi.post(`/reviews/${id}/comments`, newCom)
+    .then((response)=>{
+        console.log(response.data);
+    })
+   
 }

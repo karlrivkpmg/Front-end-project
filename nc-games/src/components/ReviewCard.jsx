@@ -1,6 +1,6 @@
 import {Vote} from './vote';
-export const ReviewCard = ({review, setError}) =>{
-    console.log(setError);
+import { Comment } from './Comment';
+export const ReviewCard = ({review, setError, renderComment, setComments}) =>{
     return <>
     <br/>
     <section id="ReviewCard">
@@ -12,7 +12,7 @@ export const ReviewCard = ({review, setError}) =>{
             <p>{review.review_body}</p>
     }
    <Vote votes={review.votes} id={review.review_id} setError={setError}/>
-
+   <Comment review_id={review.review_id} renderComment={renderComment} setComments={setComments} />
 
     <p> Comment Count: {review.comment_count}
     </p>
