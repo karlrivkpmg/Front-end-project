@@ -82,3 +82,8 @@
 img {
   width: 60%;
 }
+
+.link-text{
+  color: inherit;
+  text-decoration: inherit;
+}

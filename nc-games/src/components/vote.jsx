@@ -17,7 +17,8 @@ export const Vote = ({votes, id, setError}) =>{
     }
     return (
         <section>
-            <p>Votes: {votes + votesChange} <button onClick={()=>{incVote(1, id)}}>👍</button><button onClick={()=>{incVote(-1, id)}}>👎</button></p>
+            {setError === undefined &&  <p>Votes: {votes}</p>}
+           {setError &&  <p>Votes: {votes + votesChange} <button onClick={()=>{incVote(1, id)}}>👍</button><button onClick={()=>{incVote(-1, id)}}>👎</button></p>}
         </section>
     )
 }

@@ -28,7 +28,5 @@ export const getCommentsById = (id) =>{
 export const patchVotesById = (inc, id)=>{
     //Don't worry abput strange object structure, backend code issue that's being managed here
     const incObj = {voteInc: inc};
-    return gamesApi.patch(`/reviews/${id}`, {voteInc:incObj}).then((res)=>{
-        console.log(res)
-    })
+    return gamesApi.patch(`/reviews/${id}`, {voteInc:incObj});
 }
