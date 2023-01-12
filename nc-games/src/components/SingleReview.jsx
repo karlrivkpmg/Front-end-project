@@ -3,15 +3,15 @@ import { getCommentsById, getReviewsById } from "../api";
 import {useState, useEffect} from 'react';
 import { ReviewCard } from "./ReviewCard";
 import { CommentCard } from "./CommentCard.jsx";
-import { NoCommentsCard } from "./NoCommentsCard";
+import { NoCommentsCard } from "./NoCommentsCard.jsx";
+import { ErrorComponent } from "./ErrorComponent";
 
 export const SingleReview = () =>{
     const [review, setReview] = useState({});
     const [comments, setComments] = useState([]);
     const [isLoadingReview, setIsLoadingReview] = useState(false);
     const [isLoadingComments, setIsLoadingComments] = useState(false);
-
-
+    const [error, setError] = useState(null);
     const {review_id} = useParams();
 
     useEffect(()=>{
@@ -43,10 +43,24 @@ export const SingleReview = () =>{
             )
         }
 
+        if(error){
+            return(
+                <div>
+                            <ErrorComponent message={"Votes canot go below 0"}/>
+                <ReviewCard key ={review.review_id} review={review} setError={setError} />
+                {comments.map((comment)=>{
+                    return(
+                        <CommentCard key={comment.comment_id} comment={comment}  />
+                    )
+                })}
+              </div>
+            )
+        }
+
         if(comments.length ===0){
             return(
                 <div>
-                <ReviewCard key ={review.review_id} review={review}/>
+                <ReviewCard key ={review.review_id} review={review} setError={setError}/>
                 <NoCommentsCard key = {"noComments"}/>
               </div>
             )
@@ -54,11 +68,11 @@ export const SingleReview = () =>{
 
     return(
         <div>
-        <ReviewCard key ={review.review_id} review={review}/>
 
+        <ReviewCard key ={review.review_id} review={review} setError={setError}/>
         {comments.map((comment)=>{
             return(
-                <CommentCard key={comment.comment_id} comment={comment}/>
+                <CommentCard key={comment.comment_id} comment={comment} />
             )
         })}
         

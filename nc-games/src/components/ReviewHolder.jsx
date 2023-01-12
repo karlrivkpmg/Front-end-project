@@ -2,11 +2,12 @@ import { useState, useEffect } from 'react';
 import { getReviews } from '../api';
 import { ReviewCard } from './ReviewCard';
 import {Link} from 'react-router-dom';
+import { ErrorComponent } from './ErrorComponent';
 
 export const ReviewHolder = () =>{
-    const [reviews, setReviews] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
-
+    const [reviews, setReviews] = useState([]);
+  
     useEffect(()=>{
         setIsLoading(true);
         getReviews()
@@ -26,11 +27,15 @@ export const ReviewHolder = () =>{
         <div>
         {reviews.map((review)=>{
             return(
-                <Link key={`${review.review_id}link`} style={{ textDecoration: 'none' }} to={`reviews/${review.review_id}`}>
-                    <ReviewCard key={review.review_id} review={review}/>
+                <Link key={`link ${review.review_id}`} style={{ textDecoration: 'none' }} to={`reviews/${review.review_id}`}>
+                <div>
+                <ReviewCard key={review.review_id} review={review}/>
+                </div>
                 </Link>
             )
         })}
+      
         </div>
+       
     )
 }
