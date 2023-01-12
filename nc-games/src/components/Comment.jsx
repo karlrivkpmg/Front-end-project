@@ -53,8 +53,6 @@ export const Comment = ({setComments, review_id, renderComment}) =>{
         {isLoadingComment && <p>Comment is being posted now</p>}
         {commentError && <p>Your comment failed to post, please try again</p>}
         </div>
-
         )
     }
-   
 }

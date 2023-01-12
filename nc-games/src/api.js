@@ -35,8 +35,4 @@ export const postCommentById = (comment, id)=>{
     //Don't worry abput strange object structure, backend code issue that's being managed here
     const newCom = {newComment:{username:"tickle122", body: comment}}
     return gamesApi.post(`/reviews/${id}/comments`, newCom)
-    .then((response)=>{
-        console.log(response.data);
-    })
-   
 }
